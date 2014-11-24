@@ -1,8 +1,16 @@
-monod <- function(C, K, r, plot = FALSE) {
+monod <- function(C, K, r, plot = FALSE, labels = TRUE) {
         rC <- K*(C)/(C + r)
         output <- cbind(C, rC)
         if(plot == TRUE) {
-                plot(output, type = "l", ylim = c(min(rC), max(rC + 2)))
+                if(labels = TRUE) {
+                plot(output, type = "l", ylim = c(min(rC), max(rC + 2)), 
+                        main = "Bacterial growth over time", 
+                        xlab = "Time", 
+                        ylab = "Number of bacteria")
+                }
+                else {
+                        plot(output, type = "l", ylim = c(min(rC), max(rC + 2)))
+                }
         }
         print(output)
 }
