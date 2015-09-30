@@ -1,0 +1,4 @@
+#!/bin/bash
+
+cd ~/programs/FigTree1.4.2
+java -jar lib/figtree.jar
