@@ -1,0 +1,3 @@
+#! /bin/bash
+cd ~/programs/ViPhy
+java -jar ViPhy.jar
