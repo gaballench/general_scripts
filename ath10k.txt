@@ -1,0 +1,3 @@
+If wifi fails again see here
+
+https://bbs.archlinux.org/viewtopic.php?id=208874
