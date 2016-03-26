@@ -1,0 +1,16 @@
+Allow wireless:
+
+1) stop dhcpcd:
+systemctl stop dhcpcd@enp3s0.service
+systemctl stop dhcpcd@wlp2s0.service
+
+2) Use wifi-menu to generate a netctl profile
+wifi-menu -o wlp2s0
+
+3) Connect to wifi
+
+4) Start profile already created
+netctl start "profile name"
+
+5) Test ping
+ping -c 3 www.google.com
