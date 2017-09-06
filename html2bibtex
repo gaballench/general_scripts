@@ -7,8 +7,11 @@ bibtexPath=$1
 # Also, please note that find ... | will find only files in $bibtexPath and then feed them one by one to read FILE so that its content passes to the iterartive variable $FILE (between quotation marks since it will take the content of the variable literally, without breaking at spaces)
 find $bibtexPath -type f | while read FILE
 do
-  echo Processing file "$FILE"
+  echo Processing file "$FILE" and looking for escaped tags
   sed -i -e 's/{\\textless}i{\\textgreater}/\\textit{/g' "$FILE"
   sed -i -e 's/{\\textless}\/i{\\textgreater}/}/g' "$FILE"
+  echo Processing file "$FILE" and looking for normal tags
+  sed -i -e 's/<i>/\\textit{/g' "$FILE"
+  sed -i -e 's/<\/i>/}/g' "$FILE"
   echo Success!
 done
