@@ -1,0 +1,4 @@
+#!/bin/bash
+
+cd ~/programs/Tracer*
+java -jar lib/tracer.jar

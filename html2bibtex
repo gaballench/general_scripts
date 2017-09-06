@@ -1,0 +1,14 @@
+#!/bin/bash
+
+# name the bibtex file or path-to-file for ease of understanding
+bibtexPath=$1
+
+# replace using sed with the in-place and expression arguments looking for html tags mistranslated to latex '<i>' = '{\textless}i{\textgreater}' '</i>' = '{\textless}/i{\textgreater}' to '\textit{' and '}' respectively
+# Also, please note that find ... | will find only files in $bibtexPath and then feed them one by one to read FILE so that its content passes to the iterartive variable $FILE (between quotation marks since it will take the content of the variable literally, without breaking at spaces)
+find $bibtexPath -type f | while read FILE
+do
+  echo Processing file "$FILE"
+  sed -i -e 's/{\\textless}i{\\textgreater}/\\textit{/g' "$FILE"
+  sed -i -e 's/{\\textless}\/i{\\textgreater}/}/g' "$FILE"
+  echo Success!
+done
