@@ -1,5 +1,11 @@
 #!/bin/bash
 
+# test if path is received
+echo "Processing bibtex files in $1..."
+
+# force to use parameter path $1
+if [ ! -d "$1" ]; then echo "html2bibtex failed, please define a path as argument"; exit 1; fi
+
 # name the bibtex file or path-to-file for ease of understanding
 bibtexPath=$1
 
