@@ -1,0 +1,13 @@
+#!/usr/bin/env bash
+
+# TAXON and FILE are mandatory arguments for the expression (taxon name) TAXON to be
+# serched for by grep in the file FILE.
+# the result is written to a new file preserving the original FILE filename and
+# appending a .out string so it can be differentiated
+TAXON=$1
+FILE=$2
+OUTPUT=`(basename $FILE)`.out
+head -n 1 $FILE > $OUTPUT
+grep $TAXON $FILE >> $OUTPUT
+NLINES=`wc -l *out | awk '{print $1}'`
+echo "Finished writing $OUTPUT with $NLINES lines"
