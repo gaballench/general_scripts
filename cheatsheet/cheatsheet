@@ -1,0 +1,9 @@
+#!/usr/bin/bash
+
+if pidof feh [0-9]
+    then
+        killall feh
+    else
+        feh -F -Z -B "white" -x /home/balleng/programs/general_scripts/cheatsheet/cards &
+fi
+
